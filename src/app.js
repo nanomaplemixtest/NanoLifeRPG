@@ -19,11 +19,20 @@ hbs.registerPartials(partialsPath)
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
+
+
+app.get('/index', (req, res) => {
+    res.render('index', {
+        
+    })
+})
+
 app.get('*', (req, res) => {
     res.render('dashboard', {
         username:'Maplenix'
     })
 })
+
 
 app.listen(port, () => {
     console.log('Server is up on port ' + port)
