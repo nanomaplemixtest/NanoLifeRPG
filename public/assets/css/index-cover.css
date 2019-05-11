@@ -20,6 +20,7 @@ a:hover {
 }
 
 
+
 /*
  * Base structure
  */
@@ -28,8 +29,6 @@ html,
 body {
   height: 100%;
   background-color: #333;
-  
-  font-family: 'VT323', monospace;
 }
 body {
   color: #fff;
@@ -40,18 +39,19 @@ body {
 }
 
 .cover-heading{
-  font-size:85px;
+  font-size:40px;
 }
 
 /* Button */
 .btn-login {
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 40px;
+  font-size: 20px;
   letter-spacing: 1px;
   display: inline-block;
   font-weight: bold;
   padding: 1px 25px;
+  padding-top: 6px;
   transition: 0.15s;
   margin-left: 30px;
   border: 4px solid #fff;
@@ -69,10 +69,10 @@ body {
 .btn-get-started {
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 45px;
+  font-size: 20px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 8px 28px;
+  padding: 15px 28px;
   transition: 0.15s;
   margin: 10px;
   border: 4px solid #fff;
@@ -115,7 +115,7 @@ body {
  */
 
 .masthead {
-  font-size: 40px;
+  font-size: 25px;
   margin-bottom: 2rem;
 }
 
@@ -173,7 +173,7 @@ body {
  */
 
 .mastfoot {
- font-size:25px;
+ font-size:20px;
 }
 
 
