@@ -25,26 +25,36 @@
 </head>
 
 <style>
+  @font-face {
+    font-family: "pixel";
+    src: url("../assets/fonts/pixel.otf");
+  }
 
+  body{
+    font-family: 'pixel', monospace;    
+  }
+
+  .main-panel{
+    background-image: url("./assets/img/index-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 </style>
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="black" data-active-color="info">
+    <div class="sidebar" data-color="black" data-active-color="info" >
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
           <div class="logo-image-small">
-            <img src="../assets/img/logo-small.gif">
+            <img src="./assets/img/logo-small.gif">
           </div>
         </a>
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Nano Life RPG
-          <!-- <div class="logo-image-big">
-            <img src="../assets/img/logo-big.png">
-          </div> -->
+          Nano LRPG
         </a>
       </div>
 
@@ -52,14 +62,12 @@
   <!-- User Profile-->
       {{>profile}}
 
-
       {{>sidebarMenu}}
-
-      
+    
     </div>
-    <div class="main-panel">
+    <div class="main-panel" >
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top " style="background-color: rgba(33,33,32,0.95)">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <div class="navbar-toggle">
@@ -69,7 +77,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" href="#pablo">{{title}}</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -114,7 +122,7 @@
 </div> -->
       <div class="content">
         <!-- content here -->
-
+        {{>content}}
 
       </div>
 

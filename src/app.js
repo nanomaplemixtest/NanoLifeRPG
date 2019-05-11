@@ -28,7 +28,8 @@ app.get('/index', (req, res) => {
 })
 
 app.get('home', (req, res) => {
-    res.render('dashboard', {
+    res.render('main', {
+        title:'Home',
         username:'Maplenix',
         sidebar1:'active'
     })
@@ -36,7 +37,8 @@ app.get('home', (req, res) => {
 
 
 app.get('*', (req, res) => {
-    res.render('dashboard', {
+    res.render('main', {
+        title:'Home',
         username:'Maplenix',
         sidebar1:'active'
     })
