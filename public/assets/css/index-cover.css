@@ -46,12 +46,11 @@ body {
 .btn-login {
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 22.5px;
   letter-spacing: 1px;
   display: inline-block;
   font-weight: bold;
-  padding: 1px 25px;
-  padding-top: 6px;
+  padding: 5px 25px;
   transition: 0.15s;
   margin-left: 30px;
   border: 4px solid #fff;
@@ -68,7 +67,7 @@ body {
 
 .btn-get-started {
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 20px;
   letter-spacing: 1px;
   display: inline-block;
