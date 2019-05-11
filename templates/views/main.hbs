@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="loadDone" style="display: none;">
 
 <head>
   <meta charset="utf-8" />
@@ -149,6 +149,10 @@
     $(document).ready(function() {
       // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
       demo.initChartsPages();
+    });
+
+    $(document).ready(function() {
+        $('#loadDone').show();       
     });
   </script>
 </body>

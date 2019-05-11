@@ -29,7 +29,7 @@ app.get('/index', (req, res) => {
 
 app.get('home', (req, res) => {
     res.render('main', {
-        title:'Home',
+        title:'HOME',
         username:'Maplenix',
         sidebar1:'active'
     })
@@ -38,7 +38,7 @@ app.get('home', (req, res) => {
 
 app.get('*', (req, res) => {
     res.render('main', {
-        title:'Home',
+        title:'HOME',
         username:'Maplenix',
         sidebar1:'active'
     })
