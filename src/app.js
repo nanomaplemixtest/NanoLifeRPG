@@ -27,9 +27,18 @@ app.get('/index', (req, res) => {
     })
 })
 
+app.get('home', (req, res) => {
+    res.render('dashboard', {
+        username:'Maplenix',
+        sidebar1:'active'
+    })
+})
+
+
 app.get('*', (req, res) => {
     res.render('dashboard', {
-        username:'Maplenix'
+        username:'Maplenix',
+        sidebar1:'active'
     })
 })
 
