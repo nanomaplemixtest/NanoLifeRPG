@@ -1,4 +1,19 @@
+<style>
+  #myProgress {
+    width: 100%;
+    background-color: rgb(223, 223, 223);
+    margin: 6.3% 5%;
+  }
+
+#myBar {
+  width: 60%;
+  height: 30px;
+  background-color: #51bcda;
+}
+</style>
+
 {{!-- ROW1 --}}
+
 <div class="row">
   <div class="col-lg-4 col-md-6 col-sm-6">
     <div class="card card-stats">
@@ -17,69 +32,60 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          EXP: 9999/9999
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
         <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="fas fa-journal-whills" style="color:#624a2e;"></i>
-            </div>
-          </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">SKILL LEARNED</p>
-              <p class="card-title">88
-                <p>
-            </div>
+          <div id="myProgress">
+          <div id="myBar"></div>
           </div>
         </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          Total Hours: 99999
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="fas fa-coins" style="color:#FFDF00;"></i>
-            </div>
-          </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">GOLD</p>
-              <p class="card-title">333
-                <p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          Total Earned: 9999
-        </div>
-      </div>
-    </div>
-  </div>  
-</div>
 
+
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          EXP: 600/1000
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <center>
+        <h3>UPGRADE</h3>
+        <hr>
+        <p class="card-category" style="font-size:20px;">Point: 10</p>
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div style="font-size:50px;">
+              <i class="fas fa-heart text-danger"> +</i>              
+            </div>
+          </div>
+
+          <div class="col-5 col-md-4">
+            <div style="font-size:50px;">
+              <i class="fas fa-brain" style="color:#3497e9;"> +</i>            
+            </div>
+          </div>
+
+          <div class="col-5 col-md-4">
+            <div style="font-size:50px;">
+              <i class="fas fa-fist-raised" style="color:red;"> +</i>          
+            </div>
+          </div>
+          
+        </div>
+        
+        </center>
+      </div>
+      <div class="card-footer ">
+        <div class="stats">
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
 {{!-- ROW2 --}}
 <div class="row">
   <div class="col-lg-4 col-md-6 col-sm-6">
@@ -160,42 +166,90 @@
   </div> 
 </div>
 
-{{!-- ROW3 --}}
+<hr>
+{{!-- ROW3--}}
+
 <div class="row">
-  <div class="col-lg-12 col-md-6 col-sm-6">
+  <div class="col-lg-4 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-body ">
-        <center>
-        <h3>UPGRADE</h3>
-        <p class="card-category" style="font-size:20px;">Point: 10</p>
         <div class="row">
           <div class="col-5 col-md-4">
-            <div style="font-size:70px;">
-              <i class="fas fa-heart text-danger"> +</i>              
+            <div class="icon-big text-center icon-warning">
+              <i class="fab fa-d-and-d" style="color:orange;"></i>
             </div>
           </div>
-
-          <div class="col-5 col-md-4">
-            <div style="font-size:70px;">
-              <i class="fas fa-brain" style="color:#3497e9;"> +</i>            
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">QUESTS</p>
+              <p class="card-title">10
+                <p>
             </div>
           </div>
-
-          <div class="col-5 col-md-4">
-            <div style="font-size:70px;">
-              <i class="fas fa-fist-raised" style="color:red;"> +</i>          
-            </div>
-          </div>
-          
         </div>
-        
-
-        </center>
       </div>
       <div class="card-footer ">
+        <hr>
         <div class="stats">
-        </div>        
+          QUESTS DONE: 999
+        </div>
       </div>
     </div>
   </div>
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="fas fa-journal-whills" style="color:#624a2e;"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">SKILL LEARNED</p>
+              <p class="card-title">88
+                <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          Total Hours: 99999
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="fas fa-coins" style="color:#FFDF00;"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">GOLD</p>
+              <p class="card-title">333
+                <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          Total Earned: 9999
+        </div>
+      </div>
+    </div>
+  </div>  
 </div>
+
+
+
+

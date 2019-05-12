@@ -6308,7 +6308,7 @@ License - nucleoapp.com/license/
   }
   .sidebar .sidebar-wrapper li.active>a:not([data-toggle="collapse"]):after,
   .sidebar .sidebar-wrapper li.active>[data-toggle="collapse"]+div .nav li:after {
-    border-right: 17px solid #f4f3ef;
+    border-right: 17px solid #67a73f;
     border-top: 17px solid transparent;
     border-bottom: 17px solid transparent;
     content: "";
