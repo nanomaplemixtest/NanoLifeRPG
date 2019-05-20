@@ -5,44 +5,32 @@ const hbs = require('hbs')
 const app = express()
 const port = process.env.PORT || 3000
 
-//KIK
+//Databse Connection
+require('./db/mongoose')
+
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
+
+
+//Routers
+const pagesRouter = require('./routers/pagesRouter')
+const userRouter = require('./routers/userRouter')
 
 // Setup handlebars engine and views location
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
-// Setup static directory to serve
+// Setup public static directory to serve
+
 app.use(express.static(publicDirectoryPath))
 
+app.use(express.json())
 
-
-app.get('/index', (req, res) => {
-    res.render('index', {
-        
-    })
-})
-
-app.get('home', (req, res) => {
-    res.render('main', {
-        title:'HOME',
-        username:'Maplenix',
-        sidebar1:'active'
-    })
-})
-
-
-app.get('*', (req, res) => {
-    res.render('main', {
-        title:'HOME',
-        username:'Maplenix',
-        sidebar1:'active'
-    })
-})
+app.use(userRouter)
+app.use(pagesRouter)
 
 
 app.listen(port, () => {
