@@ -92,7 +92,7 @@ function sendRegister(data){
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: '/users/register',
+        url: '/users/register', 
         data: JSON.stringify(data),
         dataType: "json",
         success: function(data,status) { 
@@ -100,9 +100,7 @@ function sendRegister(data){
         },
         error:function(e){
            console.log("Register Fail");
-        },
-        
-        
+        },        
      });
 }
 

@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
+const cors = require('cors')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -24,6 +25,9 @@ app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
 // Setup public static directory to serve
+
+
+app.use(cors())
 
 app.use(express.static(publicDirectoryPath))
 
