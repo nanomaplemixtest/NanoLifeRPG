@@ -28,11 +28,13 @@ hbs.registerPartials(partialsPath)
 
 app.use(cors())
 
+app.options('users/register',cors())
+
 app.use(express.static(publicDirectoryPath))
 
 app.use(express.json())
 
-app.use(userRouter,cors())
+app.use(userRouter)
 app.use(pagesRouter)
 
 

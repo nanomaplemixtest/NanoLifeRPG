@@ -1,10 +1,9 @@
 const express = require('express')
 const User = require('../models/user')
 const auth = require('../middleware/auth')
-const cors = require('cors')
 const router = new express.Router()
 
-router.post('/users/register',cors(), async (req, res) => {
+router.post('/users/register', async (req, res) => {
     const user = new User(req.body)
     try {
         await user.save()        
