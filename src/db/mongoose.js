@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 try{
-    mongoose.connect('mongodb+srv://maplenix:admin@cluster0-zhtzh.mongodb.net/test?retryWrites=true', {
+    mongoose.connect('mongodb+srv://admin:admin@cluster0-abq5f.gcp.mongodb.net/test?retryWrites=true', {
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: false
