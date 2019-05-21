@@ -26,7 +26,6 @@ hbs.registerPartials(partialsPath)
 
 // Setup public static directory to serve
 
-
 app.use(cors())
 
 app.use(express.static(publicDirectoryPath))
