@@ -4,7 +4,9 @@ const auth = require('../middleware/auth')
 const router = new express.Router()
 
 router.post('/users/register', async (req, res) => {
+    console.log('HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
     const user = new User(req.body)
+    console.log(req.body)
     try {
         await user.save()        
         res.status(201).send({ user })
@@ -16,6 +18,7 @@ router.post('/users/register', async (req, res) => {
 })
 
 router.post('/users/login', async (req, res) => {
+    console.log('HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
