@@ -10,16 +10,17 @@ router.post('/users/register', async (req, res) => {
         console.log('if this show, models is trying to save')
         await user.save()             
         console.log('if this show,models is saved')
-        res.status(201).send()
+        res.status(201).send({ user })
            
     } catch (e) {
+        console.log(e)
         res.status(400).send(e)
     }
 
 })
 
 router.post('/users/login', async (req, res) => {
-    console.log('HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
