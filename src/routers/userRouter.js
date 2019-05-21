@@ -4,12 +4,13 @@ const auth = require('../middleware/auth')
 const router = new express.Router()
 
 router.post('/users/register', async (req, res) => {
-    console.log('HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+
     const user = new User(req.body)
-    console.log(req.body)
     try {
-        await user.save()        
-        res.status(201).send({ user })
+        console.log('if this show, models is trying to save')
+        await user.save()             
+        console.log('if this show,models is saved')
+        res.status(201).send()
            
     } catch (e) {
         res.status(400).send(e)
