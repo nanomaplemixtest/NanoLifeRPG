@@ -71,23 +71,39 @@ loginForm.addEventListener('submit',(e)=>{
 })
 
 function sendRegister(data){
-    console.log('this run')
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    // console.log('this run')
+    // let xhttp = new XMLHttpRequest();
+    // xhttp.onreadystatechange = function() {
 
-        console.log(this.readyState);
-        console.log(this.status);
+    //     console.log(this.readyState);
+    //     console.log(this.status);
 
-        if (this.readyState == 4 && this.status == 201) {
-           // Typical action to be performed when the document is ready:
-           location.replace("/login");
-        }
-    };
-    xhttp.open("POST", "/users/register", true);
-    xhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    //     if (this.readyState == 4 && this.status == 201) {
+    //        // Typical action to be performed when the document is ready:
+    //        location.replace("/login");
+    //     }
+    // };
+    // xhttp.open("POST", "/users/register", true);
+    // xhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     
     
-    xhttp.send(JSON.stringify(data));   
+    // xhttp.send(JSON.stringify(data));   
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: '/users/register',
+        data: JSON.stringify(data),
+        dataType: "json",
+        success: function(data,status) { 
+            location.replace("/login");
+        },
+        error:function(e){
+           console.log("Register Fail");
+        },
+        
+        
+     });
 }
 
 
