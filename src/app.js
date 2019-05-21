@@ -33,22 +33,7 @@ app.use(express.static(publicDirectoryPath))
 
 app.use(express.json())
 
-
-
-app.post('/users/register', async (req, res) => {
-    const user = new User(req.body)
-    try {
-        await user.save()        
-        res.status(201).send({ user })
-           
-    } catch (e) {
-        res.status(400).send(e)
-    }
-
-})
-
-
-app.use(userRouter)
+app.use(userRouter,cors())
 app.use(pagesRouter)
 
 
