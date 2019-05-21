@@ -7,13 +7,10 @@ router.post('/users/register', async (req, res) => {
 
     const user = new User(req.body)
     try {
-        console.log('if this show, models is trying to save')
         await user.save()             
-        console.log('if this show,models is saved')
         res.status(201).send({ user })
            
     } catch (e) {
-        console.log(e)
         res.status(400).send(e)
     }
 
