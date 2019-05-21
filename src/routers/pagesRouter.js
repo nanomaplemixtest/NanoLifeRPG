@@ -15,6 +15,12 @@ router.get('/login', (req, res) => {
     })
 })
 
+router.get('/register', (req, res) => {
+    res.render('register', {
+        
+    })
+})
+
 router.get('*', (req, res) => {
     res.render('index', {
     })

@@ -1,4 +1,3 @@
-
 let token = localStorage.getItem('authToken')
 
 if(!token){
@@ -12,5 +11,9 @@ $.ajax({
     beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer '+token);},
     success: function(data,status) { 
         $("#username").html(data.username);
-    }
+    },
+    error:function(data){
+        location.replace("/login")
+    },
+    
 });

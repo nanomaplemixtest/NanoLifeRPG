@@ -1,3 +1,4 @@
+
 // document.getElementById("email").classList.add('alert-validate')
 
 // document.getElementById("email").setAttribute("data-validate", "Puzzy")
@@ -11,13 +12,25 @@ const loginForm = document.querySelector('form');
 loginForm.addEventListener('submit',(e)=>{
     e.preventDefault();
 
+
+    const usernameStr = document.getElementById('usernameTextBox').value;
     const emailStr = document.getElementById('emailTextBox').value;
     const passwordStr = document.getElementById('passwordTextBox').value;
+    const cPasswordStr = document.getElementById('cPasswordTextBox').value;
 
-    //Reset
+    var check = true;
+
+
+    document.getElementById("username").classList.remove('alert-validate');
     document.getElementById("email").classList.remove('alert-validate');
     document.getElementById("password").classList.remove('alert-validate');
-    var check = true;
+    document.getElementById("cPassword").classList.remove('alert-validate');
+
+    if(usernameStr == ""){
+        document.getElementById("username").classList.add('alert-validate');
+        document.getElementById("username").setAttribute("data-validate", "Username is required");
+        check = false;
+    }
 
     if(emailStr == ""){
         document.getElementById("email").classList.add('alert-validate');
@@ -35,32 +48,44 @@ loginForm.addEventListener('submit',(e)=>{
         check = false;
     }
 
+    if(cPasswordStr == ""){
+        document.getElementById("cPassword").classList.add('alert-validate');
+        document.getElementById("cPassword").setAttribute("data-validate", "Password is required");
+        check = false;
+    }else if(passwordStr != cPasswordStr){
+        document.getElementById("cPassword").classList.add('alert-validate');
+        document.getElementById("cPassword").setAttribute("data-validate", "Password not match");
+        check = false;
+    }
 
     if(check){
         var data = {
+            username:usernameStr,
             email:emailStr,
             password:passwordStr
         };
-    
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-               // Typical action to be performed when the document is ready:
-               let data = JSON.parse(this.response);
-               localStorage.setItem('authToken',data.token);
-               location.replace("/home");
-            }
-        };
-        xhttp.open("POST", "/users/login", true);
-        xhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-        //xhttp.setRequestHeader('Authorization','Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2UyNTlhN2ZhNTc5MTM5NTRkZmFlYjAiLCJpYXQiOjE1NTgzMzc5NTl9.kYIhTliXvqqPAIIZssAhIOPJKaK6vhr_0lnyFyvNs4I')
-        
-        xhttp.send(JSON.stringify(data));
-        
+
+        sendRegister(data);
     }
-    
-    
+
 })
+
+function sendRegister(data){
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        console.log(this.readyState);
+        console.log(this.status);
+        if (this.readyState == 4 && this.status == 201) {
+           // Typical action to be performed when the document is ready:
+           location.replace("/login");
+        }
+    };
+    xhttp.open("POST", "/users/register", true);
+    xhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    
+    
+    xhttp.send(JSON.stringify(data));   
+}
 
 
 function ValidateEmail(inputText){
@@ -72,8 +97,6 @@ function ValidateEmail(inputText){
         return false;
     }
 }
-
-
 
 
 
