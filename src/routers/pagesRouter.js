@@ -10,8 +10,7 @@ router.get('/home', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-    res.render('login', {
-        
+    res.render('login', {        
     })
 })
 
@@ -21,9 +20,14 @@ router.get('/register', (req, res) => {
     })
 })
 
-router.get('*', (req, res) => {
+router.get('/', (req, res) => {
     res.render('index', {
     })
+})
+
+router.get('/*', (req, res) => {
+    
+    res.redirect('/home')
 })
 
 module.exports = router

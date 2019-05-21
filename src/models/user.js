@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const Task = require('./task')
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -38,14 +37,61 @@ const userSchema = new mongoose.Schema({
             type: String,
             required: true
         }
-    }]
+    }],
+    stats:{
+        level:{
+            type:Number,
+            default:1
+        },
+        exp:{
+            type:Number,
+            default:0
+        },
+        maxExp:{
+            type:Number,
+            default:100
+        },
+        point:{
+            type:Number,
+            default:0
+        },
+        hp:{
+            type:Number,
+            default:1
+        },
+        int:{
+            type:Number,
+            default:1
+        },
+        str:{
+            type:Number,
+            default:1
+        },
+        gold:{
+            type:Number,
+            default:0
+        },
+        goldTotal:{
+            type:Number,
+            default:0
+        },
+        questsCompleted:{
+            type:Number,
+            default:0
+        },
+        skillHours:{
+            type:Number,
+            default:0
+        }
+
+    }
 })
 
-// userSchema.virtual('tasks', {
-//     ref: 'Task',
-//     localField: '_id',
-//     foreignField: 'owner'
-// })
+userSchema.virtual('quests', {
+    ref: 'Quest',
+    localField: '_id',
+    foreignField: 'owner'
+})
 
 userSchema.methods.toJSON = function () {
     const user = this

@@ -1,9 +1,13 @@
 const mongoose = require('mongoose')
 
-const Task = mongoose.model('Task', {
-    description: {
+const Quest = mongoose.model('Quest', {
+    title:{
         type: String,
         required: true,
+        trim: true
+    },
+    description: {
+        type: String,
         trim: true
     },
     completed: {
@@ -17,4 +21,4 @@ const Task = mongoose.model('Task', {
     }
 })
 
-module.exports = Task
+module.exports = Quest

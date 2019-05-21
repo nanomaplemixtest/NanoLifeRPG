@@ -5,11 +5,11 @@
     margin: 6.3% 5%;
   }
 
-#myBar {
-  width: 60%;
-  height: 30px;
-  background-color: #51bcda;
-}
+  #myBar {
+    width: 60%;
+    height: 30px;
+    background-color: #51bcda;
+  }
 </style>
 
 {{!-- ROW1 --}}
@@ -27,8 +27,7 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">LEVEL</p>
-              <p class="card-title">999
-                <p>
+              <p id="cardLevel"class="card-title">999<p>
             </div>
           </div>
         </div>
@@ -42,8 +41,8 @@
       </div>
       <div class="card-footer ">
         <hr>
-        <div class="stats">
-          EXP: 600/1000
+        <div id="cardEXP" class="stats">
+          EXP: 0/0
         </div>
       </div>
     </div>
@@ -54,22 +53,22 @@
         <center>
         <h3>UPGRADE</h3>
         <hr>
-        <p class="card-category" style="font-size:20px;">Point: 10</p>
+        <p id="cardUpgradePoint"class="card-category" style="font-size:20px;">Point: 10</p>
         <div class="row">
           <div class="col-5 col-md-4">
-            <div style="font-size:50px;">
+            <div style="font-size:50px; cursor:pointer;"onclick="upgradeHP()">
               <i class="fas fa-heart text-danger"> +</i>              
             </div>
           </div>
 
           <div class="col-5 col-md-4">
-            <div style="font-size:50px;">
+            <div style="font-size:50px; cursor:pointer;"onclick="upgradeINT()">
               <i class="fas fa-brain" style="color:#3497e9;"> +</i>            
             </div>
           </div>
 
           <div class="col-5 col-md-4">
-            <div style="font-size:50px;">
+            <div style="font-size:50px; cursor:pointer;"onclick="upgradeSTR()">
               <i class="fas fa-fist-raised" style="color:red;"> +</i>          
             </div>
           </div>
@@ -100,15 +99,15 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Health</p>
-              <p class="card-title">Level 10<p>
+              <p id="hpLevel" class="card-title">Level 0<p>
             </div>
           </div>
         </div>
       </div>
       <div class="card-footer ">
         <hr>
-        <div class="stats">
-          HP: 1000
+        <div id="hp" class="stats">
+          HP: 0
         </div>        
       </div>
     </div>
@@ -125,15 +124,15 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Intelligence</p>
-              <p class="card-title">Level 10<p>
+              <p id="intLevel" class="card-title">Level 0<p>
             </div>
           </div>
         </div>
       </div>
       <div class="card-footer ">
         <hr>
-        <div class="stats">
-          MANA: 1000
+        <div id="mana" class="stats">
+          MANA: 0
         </div>
       </div>
     </div>
@@ -150,16 +149,15 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Strength</p>
-              <p class="card-title">Level 10
-                <p>
+              <p id="strLevel" class="card-title">Level 0<p>
             </div>
           </div>
         </div>
       </div>
       <div class="card-footer">
         <hr>
-        <div class="stats">
-          ATK: 9999
+        <div id="atk" class="stats">
+          ATK: 0
         </div>
       </div>
     </div>
@@ -182,7 +180,7 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">QUESTS</p>
-              <p class="card-title">10
+              <p id="questCount" class="card-title">0
                 <p>
             </div>
           </div>
@@ -190,8 +188,8 @@
       </div>
       <div class="card-footer ">
         <hr>
-        <div class="stats">
-          QUESTS COMPLETED: 999
+        <div id="questsCompleted" class="stats">
+          QUESTS COMPLETED: 0
         </div>
       </div>
     </div>
@@ -208,7 +206,7 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">SKILL LEARNED</p>
-              <p class="card-title">88
+              <p id="skillLearned" class="card-title">0
                 <p>
             </div>
           </div>
@@ -216,8 +214,8 @@
       </div>
       <div class="card-footer ">
         <hr>
-        <div class="stats">
-          Total Hours: 99999
+        <div id="totalHours"class="stats">
+          Total Hours: 0
         </div>
       </div>
     </div>
@@ -234,7 +232,7 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">GOLD</p>
-              <p class="card-title">333
+              <p id="gold" class="card-title">0
                 <p>
             </div>
           </div>
@@ -242,8 +240,8 @@
       </div>
       <div class="card-footer ">
         <hr>
-        <div class="stats">
-          Total Earned: 9999
+        <div id="goldTotal" class="stats">
+          Total Earned: 0
         </div>
       </div>
     </div>
