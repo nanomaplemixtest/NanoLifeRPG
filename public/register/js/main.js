@@ -73,8 +73,6 @@ loginForm.addEventListener('submit',(e)=>{
 function sendRegister(data){
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        console.log(this.readyState);
-        console.log(this.status);
         if (this.readyState == 4 && this.status == 201) {
            // Typical action to be performed when the document is ready:
            location.replace("/login");
