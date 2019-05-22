@@ -5,7 +5,6 @@ const User = require('../models/user')
 const router = new express.Router()
 
 router.post('/stats/upgrade', auth ,async (req, res) => {
-    console.log(req.user)
 
     try {
         if(req.user.stats.point > 0){

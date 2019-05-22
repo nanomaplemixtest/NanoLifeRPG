@@ -6,7 +6,6 @@
   }
 
   #myBar {
-    width: 60%;
     height: 30px;
     background-color: #51bcda;
   }
@@ -27,13 +26,13 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">LEVEL</p>
-              <p id="cardLevel"class="card-title">999<p>
+              <p class="card-title">{{userData.level}}<p>
             </div>
           </div>
         </div>
         <div class="row">
           <div id="myProgress">
-          <div id="myBar"></div>
+          <div id="myBar" style="width: {{userData.levelBar}}%;"></div>
           </div>
         </div>
 
@@ -42,7 +41,7 @@
       <div class="card-footer ">
         <hr>
         <div id="cardEXP" class="stats">
-          EXP: 0/0
+          EXP: {{userData.exp}}/{{userData.maxExp}}
         </div>
       </div>
     </div>
@@ -53,23 +52,26 @@
         <center>
         <h3>UPGRADE</h3>
         <hr>
-        <p id="cardUpgradePoint"class="card-category" style="font-size:20px;">Point: 10</p>
+        <p id="cardUpgradePoint"class="card-category" style="font-size:20px;">Point: {{userData.point}}</p>
         <div class="row">
           <div class="col-5 col-md-4">
             <div style="font-size:50px; cursor:pointer;"onclick="upgradeHP()">
-              <i class="fas fa-heart text-danger"> +</i>              
+              <i class="fas fa-heart text-danger"> +</i>
+              <p id="upgradeHPLevel"style="font-size: 25px;">Level {{userData.hpLevel}}</p>              
             </div>
           </div>
 
           <div class="col-5 col-md-4">
             <div style="font-size:50px; cursor:pointer;"onclick="upgradeINT()">
-              <i class="fas fa-brain" style="color:#3497e9;"> +</i>            
+              <i class="fas fa-brain" style="color:#3497e9;"> +</i>    
+              <p id="upgradeINTLevel"style="font-size: 25px;">Level {{userData.intLevel}}</p>           
             </div>
           </div>
 
           <div class="col-5 col-md-4">
             <div style="font-size:50px; cursor:pointer;"onclick="upgradeSTR()">
-              <i class="fas fa-fist-raised" style="color:red;"> +</i>          
+              <i class="fas fa-fist-raised" style="color:red;"> +</i>    
+              <p id="upgradeSTRLevel"style="font-size: 25px;">Level {{userData.strLevel}}</p>         
             </div>
           </div>
           
@@ -99,15 +101,15 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Health</p>
-              <p id="hpLevel" class="card-title">Level 0<p>
+              <p id="hp" class="card-title">HP: {{userData.hp}}<p>
             </div>
           </div>
         </div>
       </div>
       <div class="card-footer ">
         <hr>
-        <div id="hp" class="stats">
-          HP: 0
+        <div id="hpLevel" class="stats">
+          Level {{userData.hpLevel}}
         </div>        
       </div>
     </div>
@@ -124,15 +126,15 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Intelligence</p>
-              <p id="intLevel" class="card-title">Level 0<p>
+              <p id="mana" class="card-title">MANA: {{userData.mana}}<p>
             </div>
           </div>
         </div>
       </div>
       <div class="card-footer ">
         <hr>
-        <div id="mana" class="stats">
-          MANA: 0
+        <div id="intLevel" class="stats">
+          Level {{userData.intLevel}}
         </div>
       </div>
     </div>
@@ -149,15 +151,15 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Strength</p>
-              <p id="strLevel" class="card-title">Level 0<p>
+              <p id="atk" class="card-title">ATK: {{userData.atk}}<p>
             </div>
           </div>
         </div>
       </div>
       <div class="card-footer">
         <hr>
-        <div id="atk" class="stats">
-          ATK: 0
+        <div id="strLevel" class="stats">
+          Level {{userData.strLevel}}
         </div>
       </div>
     </div>
@@ -180,7 +182,7 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">QUESTS</p>
-              <p id="questCount" class="card-title">0
+              <p id="questCount" class="card-title">{{userData.questsCount}}
                 <p>
             </div>
           </div>
@@ -189,7 +191,7 @@
       <div class="card-footer ">
         <hr>
         <div id="questsCompleted" class="stats">
-          QUESTS COMPLETED: 0
+          QUESTS COMPLETED: {{userData.questsCompleted}}
         </div>
       </div>
     </div>
@@ -232,7 +234,7 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">GOLD</p>
-              <p id="gold" class="card-title">0
+              <p id="gold" class="card-title">{{userData.gold}}
                 <p>
             </div>
           </div>
@@ -241,7 +243,7 @@
       <div class="card-footer ">
         <hr>
         <div id="goldTotal" class="stats">
-          Total Earned: 0
+          Total Earned: {{userData.goldTotal}}
         </div>
       </div>
     </div>
@@ -249,7 +251,7 @@
 </div>
 
 
-
+<script src="/home/home.js"></script>
 
 
 

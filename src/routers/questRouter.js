@@ -16,7 +16,7 @@ router.post('/quests/create', auth ,async (req, res) => {
     }
 })
 
-router.get('/quests', auth ,async (req, res) => {
+router.get('/quests/getQuests', auth ,async (req, res) => {
 
     try {
         const user = await User.findById(req.user._id)

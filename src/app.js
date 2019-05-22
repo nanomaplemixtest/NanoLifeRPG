@@ -1,7 +1,7 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
-//const cors = require('cors')
+const cookieParser = require('cookie-parser')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -28,11 +28,9 @@ hbs.registerPartials(partialsPath)
 
 // Setup public static directory to serve
 
-//app.use(cors())
-
 app.use(express.static(publicDirectoryPath))
-
 app.use(express.json())
+app.use(cookieParser())
 
 app.use(userRouter)
 app.use(questRouter)
