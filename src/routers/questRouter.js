@@ -4,7 +4,7 @@ const Quest = require('../models/quest')
 const User = require('../models/user')
 const router = new express.Router()
 
-router.post('/quests/create', auth ,async (req, res) => {
+router.post('/api/quests/create', auth ,async (req, res) => {
 
     const quest = new Quest(req.body)
     try {
@@ -16,7 +16,7 @@ router.post('/quests/create', auth ,async (req, res) => {
     }
 })
 
-router.get('/quests/getQuests', auth ,async (req, res) => {
+router.get('/api/quests/getQuests', auth ,async (req, res) => {
 
     try {
         const user = await User.findById(req.user._id)

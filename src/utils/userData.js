@@ -7,7 +7,7 @@ const getHomeData = async (user)=>{
     const level = user.stats.level   
     const exp = user.stats.exp
     const maxExp = user.stats.maxExp
-    const levelBar = (exp / maxExp ) * 100 
+    const levelBar = Math.floor((exp / maxExp ) * 100)
 
     //Stats and Stats Level
     const point = user.stats.point

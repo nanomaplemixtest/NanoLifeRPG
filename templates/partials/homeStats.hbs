@@ -2,7 +2,7 @@
   #myProgress {
     width: 100%;
     background-color: rgb(223, 223, 223);
-    margin: 6.3% 5%;
+    margin: 3% 5%;
   }
 
   #myBar {
@@ -11,85 +11,132 @@
   }
 </style>
 
+<div class="row">
+  <div class="col-lg-12 text-center" >
+    <h3 class="card pt-3">STATS</h3>
+  </div>
+</div>  
+
 {{!-- ROW1 --}}
 
+<hr>
 <div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="fas fa-diagnoses" style="color: #3497e9;"></i>
-            </div>
-          </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">LEVEL</p>
-              <p class="card-title">{{userData.level}}<p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div id="myProgress">
-          <div id="myBar" style="width: {{userData.levelBar}}%;"></div>
-          </div>
-        </div>
-
-
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div id="cardEXP" class="stats">
-          EXP: {{userData.exp}}/{{userData.maxExp}}
-        </div>
-      </div>
+  <div class="col-lg-4">
+    <div class="card card-user">
+              <div class="image">
+                <img src="/assets/img/index-bg-night.png" alt="...">
+              </div>
+              <div class="card-body">
+                <div class="author">
+                  <a href="#">
+                    <img class="avatar border-gray" style="background-color:white;" src="/assets/img/profile.webp" alt="...">
+                    <h5 class="title">{{userData.username}}</h5>
+                  </a>
+                  <p class="description">
+                    <h5>Level {{userData.level}}</h5>
+                  </p>
+                </div>
+                <p class="description text-center">
+                    <div class="row">
+                      <div id="myProgress">
+                        <div id="myBar" style="width: {{userData.levelBar}}%;"></div>
+                      </div>
+                    </div>
+                </p>
+                <div class="text-center" style="">
+                  EXP {{userData.exp}}/{{userData.maxExp}}
+                </div>
+              </div>
+              <div class="card-footer">
+                <br><br>
+              </div>
     </div>
   </div>
-  <div class="col-lg-8 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
-        <center>
-        <h3>UPGRADE</h3>
-        <hr>
-        <p id="cardUpgradePoint"class="card-category" style="font-size:20px;">Point: {{userData.point}}</p>
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div style="font-size:50px; cursor:pointer;"onclick="upgradeHP()">
-              <i class="fas fa-heart text-danger"> +</i>
-              <p id="upgradeHPLevel"style="font-size: 25px;">Level {{userData.hpLevel}}</p>              
-            </div>
-          </div>
 
-          <div class="col-5 col-md-4">
-            <div style="font-size:50px; cursor:pointer;"onclick="upgradeINT()">
-              <i class="fas fa-brain" style="color:#3497e9;"> +</i>    
-              <p id="upgradeINTLevel"style="font-size: 25px;">Level {{userData.intLevel}}</p>           
-            </div>
-          </div>
-
-          <div class="col-5 col-md-4">
-            <div style="font-size:50px; cursor:pointer;"onclick="upgradeSTR()">
-              <i class="fas fa-fist-raised" style="color:red;"> +</i>    
-              <p id="upgradeSTRLevel"style="font-size: 25px;">Level {{userData.strLevel}}</p>         
-            </div>
-          </div>
-          
-        </div>
-        
-        </center>
-      </div>
-      <div class="card-footer ">
-        <div class="stats">
-        </div>        
-      </div>
+  <div class="col-lg-8">
+    
+    <div class="card">
+              <div class="card-header">
+                
+                <h3 class="card-title text-center" ><i class="fab fa-studiovinari pr-2 h3"></i>STATS LEVEL</h3>
+                <hr>
+              </div>
+              <div class="card-body" style="font-size:22.5px;">
+                <ul class="list-unstyled team-members">
+                  <li>
+                    <div class="row pl-4">
+                      <div class="col-1">   
+                                           
+                      </div>
+                      <div class="col-7">                       
+                        Stat Point
+                      </div>
+                      <div class="col-2 text-right">                         
+                        {{userData.point}}
+                      </div>
+                      <div class="col-2 text-left">
+                        
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row pl-4 mt-sm-4">
+                      <div class="col-1">   
+                        <i class="fas fa-heart text-success text-right" style="font-size:35px;"></i>                        
+                      </div>
+                      <div class="col-7">                       
+                        Health
+                      </div>
+                      <div class="col-2 text-right">                         
+                          {{userData.hpLevel}}
+                      </div>
+                      <div class="col-2 text-left">
+                        <i class="fas fa-arrow-alt-circle-up text-success" onclick="upgradeHP()"style="font-size:40px; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row mt-sm-4 pl-4">
+                      <div class="col-1">
+                        <i class="fas fa-brain" style="color:#3497e9; font-size:30px;"></i> 
+                      </div>
+                      <div class="col-7">
+                        Intelligence  
+                      </div>
+                      <div class="col-2 text-right">
+                        {{userData.intLevel}}
+                      </div>
+                      <div class="col-2 text-left">
+                        <i class="fas fa-arrow-alt-circle-up text-success" onclick="upgradeINT()"style="font-size:40px; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row mt-sm-4 pl-4">
+                      <div class="col-1">
+                        <i class="fas fa-fist-raised pl-1 " style="color:red; font-size:35px;"></i>
+                      </div>
+                      <div class="col-7">
+                        Strength
+                      </div>
+                      <div class="col-2 text-right">
+                        {{userData.strLevel}}
+                      </div>
+                      <div class="col-2 text-left">
+                        <i class="fas fa-arrow-alt-circle-up text-success" onclick="upgradeSTR()"style="font-size:40px; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
     </div>
   </div>
 </div>
 <hr>
+
 {{!-- ROW2 --}}
 <div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-6">
+  <div class="col-lg-4">
     <div class="card card-stats">
       <div class="card-body ">
         <div class="row">
@@ -101,7 +148,8 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Health</p>
-              <p id="hp" class="card-title">HP: {{userData.hp}}<p>
+              <p id="hp" class="card-title">HP</p>
+              <p class="card-title">{{userData.hp}}</p>
             </div>
           </div>
         </div>
@@ -114,7 +162,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-6 col-sm-6">
+  <div class="col-lg-4">
     <div class="card card-stats">
       <div class="card-body ">
         <div class="row">
@@ -126,7 +174,8 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Intelligence</p>
-              <p id="mana" class="card-title">MANA: {{userData.mana}}<p>
+              <p id="mana" class="card-title">MANA</p>
+              <p class="card-title">{{userData.mana}}</p>
             </div>
           </div>
         </div>
@@ -139,7 +188,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-6 col-sm-6">
+  <div class="col-lg-4">
     <div class="card card-stats">
       <div class="card-body ">
         <div class="row">
@@ -151,7 +200,8 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Strength</p>
-              <p id="atk" class="card-title">ATK: {{userData.atk}}<p>
+              <p id="atk" class="card-title">ATK</p>
+              <p class="card-title">{{userData.atk}}</p>
             </div>
           </div>
         </div>

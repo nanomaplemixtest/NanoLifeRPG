@@ -75,7 +75,7 @@ function sendRegister(data){
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: '/users/register', 
+        url: '/api/users/register', 
         data: JSON.stringify(data),
         dataType: "json",
         success: function(data,status) { 

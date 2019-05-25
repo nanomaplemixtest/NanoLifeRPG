@@ -1,7 +1,7 @@
 
 function upgradeHP(){
     $.ajax({
-        url: "/stats/upgrade",
+        url: "/api/stats/upgrade",
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify({type:"HP"}),
@@ -14,7 +14,7 @@ function upgradeHP(){
 
 function upgradeINT(){
     $.ajax({
-        url: "/stats/upgrade",
+        url: "/api/stats/upgrade",
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify({type:"INT"}),
@@ -27,7 +27,7 @@ function upgradeINT(){
 
 function upgradeSTR(){
     $.ajax({
-        url: "/stats/upgrade",
+        url: "/api/stats/upgrade",
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify({type:"STR"}),

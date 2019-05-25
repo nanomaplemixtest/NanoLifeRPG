@@ -45,7 +45,7 @@ loginForm.addEventListener('submit',(e)=>{
         $.ajax({
             type: "POST",
             contentType: "application/json",
-            url: '/users/login', 
+            url: '/api/users/login', 
             data: JSON.stringify(data),
             dataType: "json",
             success: function(data,status) { 

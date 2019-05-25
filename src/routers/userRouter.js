@@ -3,7 +3,7 @@ const User = require('../models/user')
 const auth = require('../middleware/auth')
 const router = new express.Router()
 
-router.post('/users/register', async (req, res) => {
+router.post('/api/users/register', async (req, res) => {
 
     const user = new User(req.body)
     try {
@@ -16,34 +16,37 @@ router.post('/users/register', async (req, res) => {
 
 })
 
-router.post('/users/login', async (req, res) => {
+router.post('/api/users/login', async (req, res) => {
     
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
 
-        res.cookie('authToken',token)
+        let date = new Date(Date.now())
+        date.setMonth(date.getMonth + 12)
+        
+        res.cookie('authToken',token,{ expires: date })
         res.status(200).send({logged:true})            
     } catch (e) {
         res.status(400).send("Wrong Username or Password")
     }
 })
 
-router.post('/users/logout', auth, async (req, res) => {
-
+router.post('/api/users/logout', auth, async (req, res) => {
+    debugger
     try {
-        // req.user.tokens = req.user.tokens.filter((token) => {
-        //     return token.token !== req.token
-        // })
-        // await req.user.save()
+        req.user.tokens = req.user.tokens.filter((token) => {
+            return token.token !== req.token
+        })
+        await req.user.save()
 
-        // res.send()
+        res.status(200).send({ok:"ok"})
     } catch (e) {
         res.status(500).send()
     }
 })
 
-router.post('/users/logoutAll', auth, async (req, res) => {
+router.post('/api/users/logoutAll', auth, async (req, res) => {
     try {
         req.user.tokens = []
         await req.user.save()
@@ -53,11 +56,11 @@ router.post('/users/logoutAll', auth, async (req, res) => {
     }
 })
 
-router.get('/users/me', auth, async (req, res) => {
+router.get('/api/users/me', auth, async (req, res) => {
     res.send(req.user)
 })
 
-router.patch('/users/me', auth, async (req, res) => {
+router.patch('/api/users/me', auth, async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['name', 'email', 'password', 'age']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
@@ -75,7 +78,7 @@ router.patch('/users/me', auth, async (req, res) => {
     }
 })
 
-router.delete('/users/me', auth, async (req, res) => {
+router.delete('/api/users/me', auth, async (req, res) => {
     try {
         await req.user.remove()
         res.send(req.user)

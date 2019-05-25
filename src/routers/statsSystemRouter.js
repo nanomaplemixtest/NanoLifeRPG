@@ -4,7 +4,7 @@ const Quest = require('../models/quest')
 const User = require('../models/user')
 const router = new express.Router()
 
-router.post('/stats/upgrade', auth ,async (req, res) => {
+router.post('/api/stats/upgrade', auth ,async (req, res) => {
 
     try {
         if(req.user.stats.point > 0){

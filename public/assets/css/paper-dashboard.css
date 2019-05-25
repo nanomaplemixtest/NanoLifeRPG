@@ -5473,6 +5473,7 @@ License - nucleoapp.com/license/
 }
 
 .card {
+  height: 95%;
   border-radius: 12px;
   box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
   background-color: #FFFFFF;
@@ -5763,7 +5764,7 @@ License - nucleoapp.com/license/
   line-height: 59px;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1250px) {
   .navbar {
     padding: 0;
   }
@@ -6272,7 +6273,7 @@ License - nucleoapp.com/license/
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1251px) {
   .navbar-collapse {
     background: none !important;
   }
