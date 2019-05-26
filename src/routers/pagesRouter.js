@@ -1,22 +1,25 @@
 const express = require('express')
 const router = new express.Router()
 const auth = require('../middleware/auth')
-const renderHome = require('../utils/userData')
+const userData = require('../utils/userData')
+const questsData = require('../utils/questsData')
 
 router.get('/home',auth,async (req, res) => {
     res.render('main', {
-        title:'HOME',
+        title:'Home',
         sidebar1:'active',
         isHome: true,
-        userData: await renderHome(req.user)
+        userData: await userData(req.user)
     })
 })
 
-router.get('/quests',(req, res) => {
+router.get('/quests',auth,async (req, res) => {
+
     res.render('main', {
         title:'Quests',
         sidebar2:'active',
-        isQuests: true
+        isQuests: true,
+        questsData: await questsData(req.user)
     })
 })
 

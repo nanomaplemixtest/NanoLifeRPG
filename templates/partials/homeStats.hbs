@@ -81,8 +81,8 @@
                   </li>
                   <li>
                     <div class="row pl-4 mt-sm-4">
-                      <div class="col-1">   
-                        <i class="fas fa-heart text-success text-right" style="font-size:35px;"></i>                        
+                      <div class="col-1">                          
+                        <i id="upgradeButton" class="fas fa-heart text-success text-right" style="font-size:35px;"></i>                        
                       </div>
                       <div class="col-7">                       
                         Health
@@ -90,8 +90,8 @@
                       <div class="col-2 text-right">                         
                           {{userData.hpLevel}}
                       </div>
-                      <div class="col-2 text-left">
-                        <i class="fas fa-arrow-alt-circle-up text-success" onclick="upgradeHP()"style="font-size:40px; cursor:pointer;"></i>
+                      <div class="col-2 text-left">                      
+                        <i class="fas fa-arrow-alt-circle-up text-success" onclick="upgradeStats('HP')"style="font-size:40px; cursor:pointer;"></i>
                       </div>
                     </div>
                   </li>
@@ -107,7 +107,7 @@
                         {{userData.intLevel}}
                       </div>
                       <div class="col-2 text-left">
-                        <i class="fas fa-arrow-alt-circle-up text-success" onclick="upgradeINT()"style="font-size:40px; cursor:pointer;"></i>
+                        <i class="fas fa-arrow-alt-circle-up text-success" onclick="upgradeStats('INT')"style="font-size:40px; cursor:pointer;"></i>
                       </div>
                     </div>
                   </li>
@@ -123,7 +123,7 @@
                         {{userData.strLevel}}
                       </div>
                       <div class="col-2 text-left">
-                        <i class="fas fa-arrow-alt-circle-up text-success" onclick="upgradeSTR()"style="font-size:40px; cursor:pointer;"></i>
+                        <i class="fas fa-arrow-alt-circle-up text-success" onclick="upgradeStats('STR')"style="font-size:40px; cursor:pointer;"></i>
                       </div>
                     </div>
                   </li>

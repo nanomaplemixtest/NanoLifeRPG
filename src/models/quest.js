@@ -14,6 +14,22 @@ const Quest = mongoose.model('Quest', {
         type: Boolean,
         default: false
     },
+    type: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    exp:{
+        type: Number,
+        required: true,
+        trim: true
+    },
+    coin:{
+        type: Number,
+        required: true,
+        trim: true
+    },
+
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,

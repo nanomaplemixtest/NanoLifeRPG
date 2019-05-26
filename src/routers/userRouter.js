@@ -8,7 +8,7 @@ router.post('/api/users/register', async (req, res) => {
     const user = new User(req.body)
     try {
         await user.save()             
-        res.status(201).send({})
+        res.status(201).send({register:true})
            
     } catch (e) {
         res.status(400).send(e)
@@ -23,8 +23,7 @@ router.post('/api/users/login', async (req, res) => {
         const token = await user.generateAuthToken()
 
         let date = new Date(Date.now())
-        date.setMonth(date.getMonth + 12)
-        
+        date.setMonth(date.getMonth() + 12)
         res.cookie('authToken',token,{ expires: date })
         res.status(200).send({logged:true})            
     } catch (e) {

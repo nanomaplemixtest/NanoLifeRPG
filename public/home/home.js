@@ -1,10 +1,10 @@
-
-function upgradeHP(){
+function upgradeStats(upgradeType){
+    
     $.ajax({
         url: "/api/stats/upgrade",
         contentType: "application/json",
         dataType: "json",
-        data: JSON.stringify({type:"HP"}),
+        data: JSON.stringify({type:upgradeType}),
         type: "POST",
         success: function(data,status) {  
             location.reload();          
@@ -12,30 +12,5 @@ function upgradeHP(){
     });
 }
 
-function upgradeINT(){
-    $.ajax({
-        url: "/api/stats/upgrade",
-        contentType: "application/json",
-        dataType: "json",
-        data: JSON.stringify({type:"INT"}),
-        type: "POST",
-        success: function(data,status) {  
-            location.reload();          
-        }      
-    });
-}
-
-function upgradeSTR(){
-    $.ajax({
-        url: "/api/stats/upgrade",
-        contentType: "application/json",
-        dataType: "json",
-        data: JSON.stringify({type:"STR"}),
-        type: "POST",
-        success: function(data,status) {  
-            location.reload();          
-        }      
-    });
-}
 
 

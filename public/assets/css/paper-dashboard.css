@@ -387,8 +387,8 @@ Copyright (c) 2015 Daniel Eden
   border-radius: 3px;
   padding: 11px 22px;
   cursor: pointer;
-  background-color: #66615B;
-  color: #FFFFFF;
+  /* background-color: #66615B;
+  color: #FFFFFF; */
   -webkit-transition: all 150ms linear;
   -moz-transition: all 150ms linear;
   -o-transition: all 150ms linear;
@@ -5772,7 +5772,7 @@ License - nucleoapp.com/license/
     padding-top: 0;
   }
   .navbar .navbar-brand {
-    font-size: 16px;
+    font-size: 25px;
     margin-right: 0;
   }
   .profile-photo .profile-photo-small {
@@ -5793,7 +5793,7 @@ License - nucleoapp.com/license/
     margin-top: 5px;
   }
   .navbar .navbar-nav .nav-item:first-child {
-    margin-top: 10px;
+    margin-top: 0px;
   }
   .navbar .navbar-nav .nav-item:not(:last-child) {
     margin-bottom: 10px;
