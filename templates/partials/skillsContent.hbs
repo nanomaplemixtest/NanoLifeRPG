@@ -1,0 +1,70 @@
+<style>
+  #myProgress {
+    width: 100%;
+    background-color: rgb(223, 223, 223);
+    margin: 3% 5%;
+  }
+
+  #myBar {
+    height: 30px;
+    background-color: #51bcda;
+  }
+</style>
+
+<div class="row">
+    <div class="col-lg-12 text-left">
+        <button class="btn btn-info" onclick="addSkill()" style="font-size:25px; cursor:pointer; ">Learn Skill</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 text-center" >
+        <h3 class="card pt-3 " style="background-color:azure;" > SKILLS </h3>
+    </div>
+</div>
+<br>
+<div class="row">
+
+    {{#each skillsData.data}}
+  
+        <div class="col-lg-4">
+            <div class="card" >
+                <div class="card-header">   
+                    <div class="row">
+                        <div class="col-9"><h5 class="card-title text-left text-danger" >{{this.title}}</h5></div>
+                        <div class="col-3 text-right"><button class="btn btn btn-light btn-round btn-icon" onclick="deleteSkill('{{this._id}}')"><i class="fas fa-times"></i></button></div>
+                    </div>
+                    <p style="font-size: 15px">Level {{this.level}}</p>   
+                    <hr>   
+                    <p class="description text-left">
+                        {{this.description}}
+                    </p>
+                </div>
+                
+                <div class="row text-center">
+                        <div class="col-12 text-left pl-5">
+                            Hours Learned : {{this.hours}} <i class="fas fa-edit"></i>
+                        </div>
+                        <div id="myProgress">
+                            <div id="myBar" style="width: 50%;"></div>
+                        </div>
+                        <div class="col-12 text-center">
+                             <i class="far fa-clock" style="font-size:20px;"></i> {{this.hours}} / {{this.maxHours}}
+                        </div>
+                    </div>             
+                <div class="card-footer text-center" style="font-size:20px;">
+                    <div class="row mb-2">
+                        
+
+                                                             
+                    </div>
+                    <button type="button" onclick="completeQuest('{{this._id}}')"class="btn btn-success" style="font-size: 15px;">Add Hours</button>    
+                </div>
+            </div>
+        </div>
+
+    {{/each}}
+</div>
+
+ <script src="/skills/skills.js"></script>
+
+

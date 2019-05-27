@@ -18,8 +18,9 @@ const partialsPath = path.join(__dirname, '../templates/partials')
 //Routers
 const pagesRouter = require('./routers/pagesRouter')
 const userRouter = require('./routers/userRouter')
-const questRouter = require('./routers/questRouter')
+const questsRouter = require('./routers/questRouter')
 const statsSystemRouter = require('./routers/statsSystemRouter')
+const skillsRouter = require('./routers/skillsRouter')
 
 // Setup handlebars engine and views location
 app.set('view engine', 'hbs')
@@ -33,9 +34,11 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.use(userRouter)
-app.use(questRouter)
-app.use(pagesRouter)
+app.use(questsRouter)
+app.use(skillsRouter)
 app.use(statsSystemRouter)
+app.use(pagesRouter)
+
 
 
 

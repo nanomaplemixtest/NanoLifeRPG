@@ -3,22 +3,25 @@ const router = new express.Router()
 const auth = require('../middleware/auth')
 const userData = require('../utils/userData')
 const questsData = require('../utils/questsData')
+const skillsData = require('../utils/skillsData')
 
 router.get('/home',auth,async (req, res) => {
     res.render('main', {
-        title:'Home',
+        pageTitle:'Home',
         sidebar1:'active',
         isHome: true,
-        userData: await userData(req.user)
+        userData: await userData(req.user),
+        skillsData: await skillsData(req.user)
     })
 })
 
 router.get('/quests',auth,async (req, res) => {
 
     res.render('main', {
-        title:'Quests',
+        pageTitle:'Quests',
         sidebar2:'active',
         isQuests: true,
+        userData: await userData(req.user),
         questsData: await questsData(req.user)
     })
 })
@@ -26,9 +29,11 @@ router.get('/quests',auth,async (req, res) => {
 router.get('/skills',auth,async (req, res) => {
 
     res.render('main', {
-        title:'Skills',
+        pageTitle:'Skills',
         sidebar3:'active',
-        isSkills: true
+        isSkills: true,
+        userData: await userData(req.user),
+        skillsData: await skillsData(req.user)
     })
 })
 
