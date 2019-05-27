@@ -23,6 +23,15 @@ router.get('/quests',auth,async (req, res) => {
     })
 })
 
+router.get('/skills',auth,async (req, res) => {
+
+    res.render('main', {
+        title:'Skills',
+        sidebar3:'active',
+        isSkills: true
+    })
+})
+
 router.get('/login', (req, res) => {
     res.render('login', {        
     })

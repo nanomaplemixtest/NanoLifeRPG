@@ -6,7 +6,7 @@ const getHomeData = async (user)=>{
     //Level
     const level = user.stats.level   
     const exp = user.stats.exp
-    const maxExp = user.stats.maxExp
+    const maxExp = Math.floor(user.stats.maxExp)
     const levelBar = Math.floor((exp / maxExp ) * 100)
 
     //Stats and Stats Level
@@ -52,7 +52,12 @@ const getHomeData = async (user)=>{
 const getQuestCount = async (user)=>{
     try {
         await user.populate('quests').execPopulate()  
-        return user.quests.length        
+
+        const count = user.quests.filter((quest) => {
+            return quest.completed == false
+        })
+
+        return count.length        
     } catch (e) {
         return 0
     }

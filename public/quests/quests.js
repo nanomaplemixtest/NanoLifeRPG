@@ -1,8 +1,77 @@
 
+const completeQuest = async(_id)=>{
+  Swal.fire({
+    text: "Quest Completed?",
+    type: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'Nope'
+  }).then((result) => {
+    if (result.value) {
+      $.ajax({
+        type: "PATCH",
+        contentType: "application/json",
+        url: '/api/quests/complete', 
+        data: JSON.stringify({"_id":_id}),
+        dataType: "json",
+        success: function(data,status) { 
+    
+    
+          location.reload();
+        },
+        error:function(e){
+           Swal.fire({
+            type: 'error',
+            title: 'Please Try Again',
+          })
+        },        
+      });
+    }
+  })
+  
+  
+
+
+  
+}
+
+const redoQuest = async(_id)=>{
+  Swal.fire({
+    text: "Redo this Quest?",
+    type: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'Nope'
+  }).then((result) => {
+    if (result.value) {
+      $.ajax({
+        type: "PATCH",
+        contentType: "application/json",
+        url: '/api/quests/redo', 
+        data: JSON.stringify({"_id":_id}),
+        dataType: "json",
+        success: function(data,status) { 
+    
+          location.reload();
+        },
+        error:function(e){
+           Swal.fire({
+            type: 'error',
+            title: 'Please Try Again',
+          })
+        },        
+      });
+    }
+  })
+}
+
 const deleteQuest = async (_id)=>{
   Swal.fire({
-    title: 'Are you sure you want to delete?',
-    text: "You won't be able to revert this!",
+    text: "Are you sure you want to delete?",
     type: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
@@ -25,7 +94,10 @@ const deleteQuest = async (_id)=>{
           })
         },
         error:function(e){
-           console.log("Deleting Quest Fail")
+           Swal.fire({
+            type: 'error',
+            title: 'Deleting Quest Fail',
+          })
         },        
      });
 

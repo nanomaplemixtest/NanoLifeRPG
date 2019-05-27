@@ -24,7 +24,7 @@ const Quest = mongoose.model('Quest', {
         required: true,
         trim: true
     },
-    coin:{
+    gold:{
         type: Number,
         required: true,
         trim: true

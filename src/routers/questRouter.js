@@ -22,12 +22,12 @@ router.post('/api/quests/create', auth ,async (req, res) => {
           }
 
         let exp = multiper * 10
-        let coin = multiper
+        let gold = multiper
 
         const quest = new Quest({
             ...req.body,
             "exp": exp,
-            "coin": coin,
+            "gold": gold,
             "owner":req.user._id})
     
         
@@ -54,10 +54,50 @@ router.get('/api/quests/getQuests', auth ,async (req, res) => {
 })
 
 router.delete('/api/quests/delete',auth,async (req ,res) =>{
-    Quest.findOneAndDelete({_id: req.body._id}, ()=>{
+    await Quest.findOneAndDelete({_id: req.body._id}, ()=>{
         res.send({deleted:true})
     })
 })
 
+router.patch('/api/quests/complete',auth,async(req,res)=>{
+    try{
+
+        const quest = await Quest.findOne({_id:req.body._id})
+        quest.completed = 'true'
+        quest.save()
+        
+        //Level Up
+        req.user.stats.exp += quest.exp
+        while(req.user.stats.exp >= req.user.stats.maxExp){
+            req.user.stats.exp -= req.user.stats.maxExp
+            req.user.stats.level++
+            req.user.stats.point++
+            req.user.stats.maxExp *= 1.05
+        }
+
+        req.user.stats.gold += quest.gold
+        req.user.stats.questsCompleted++
+        req.user.stats.goldTotal += quest.gold
+
+        req.user.save()
+        res.status(202).send({completed:true})
+    }catch(e){
+        res.status(400).send()
+    }
+
+})
+
+router.patch('/api/quests/redo',auth,async(req,res)=>{
+    try{
+
+        const quest = await Quest.findOne({_id:req.body._id})
+        quest.completed = 'false'
+        quest.save()
+        
+        res.status(202).send({redo:true})
+    }catch(e){
+        res.status(400).send()
+    }
+})
 
 module.exports = router
