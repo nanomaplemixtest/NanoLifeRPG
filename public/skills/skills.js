@@ -60,9 +60,6 @@ const addSkill = async()=>{
     }
   }
 
-
-
-
   const deleteSkill = async (_id)=>{
     Swal.fire({
       text: "Are you sure you want to unlearn?",
@@ -82,7 +79,7 @@ const addSkill = async()=>{
           success: function(data,status) { 
             Swal.fire({
               type: 'success',
-              title: 'Skill Removed'
+              title: 'Skill Unlearned'
             }).then((result) => {
               location.reload();
             })
@@ -98,4 +95,87 @@ const addSkill = async()=>{
       }
     })
     
+  }
+
+  const addHours = async (_id)=>{
+    const {value: hours} = await Swal.fire({
+        title: 'Enter Hours',
+        input: 'text',
+        showCancelButton: true,
+        inputValidator: (value) => {
+          if (!value) {
+            return 'You need to write something!'
+          }
+          const h = parseFloat(value)
+          if(!h){
+            return 'Invalid Hours'
+          }
+        }
+      })
+      
+      if (hours) {
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: '/api/skills/addHours', 
+            data: JSON.stringify({"hours":hours,"_id":_id}),
+            dataType: "json",
+            success: function(data,status) { 
+              Swal.fire({
+                type: 'success',
+                title: 'Hours Added'
+              }).then((result) => {
+                location.reload();
+              })
+            },
+            error:function(e){
+                Swal.fire({
+                    type: 'error',
+                    title: 'Fail to add hours, please try again',
+                  })
+            },        
+         });
+      }
+  }
+
+
+  const editHours = async (_id)=>{
+    const {value: hours} = await Swal.fire({
+        title: 'Enter Hours',
+        input: 'text',
+        showCancelButton: true,
+        inputValidator: (value) => {
+          if (!value) {
+            return 'You need to write something!'
+          }
+          const h = parseFloat(value)
+          if(!h){
+            return 'Invalid Hours'
+          }
+        }
+      })
+      
+      if (hours) {
+        $.ajax({
+            type: "PATCH",
+            contentType: "application/json",
+            url: '/api/skills/editHours', 
+            data: JSON.stringify({"hours":hours,"_id":_id}),
+            dataType: "json",
+            success: function(data,status) { 
+              Swal.fire({
+                type: 'success',
+                title: 'Hours Edited'
+              }).then((result) => {
+                location.reload();
+              })
+            },
+            error:function(e){
+                Swal.fire({
+                    type: 'error',
+                    title: 'Fail to edit hours, please try again',
+                  })
+            },        
+         });
+      }
   }

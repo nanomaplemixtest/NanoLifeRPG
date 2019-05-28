@@ -26,45 +26,38 @@
 
     {{#each skillsData.data}}
   
-        <div class="col-lg-4">
+        <div class="col-lg-6">
             <div class="card" >
-                <div class="card-header">   
+                <div class="card-header pl-5">   
                     <div class="row">
                         <div class="col-9"><h5 class="card-title text-left text-danger" >{{this.title}}</h5></div>
                         <div class="col-3 text-right"><button class="btn btn btn-light btn-round btn-icon" onclick="deleteSkill('{{this._id}}')"><i class="fas fa-times"></i></button></div>
                     </div>
                     <p style="font-size: 15px">Level {{this.level}}</p>   
-                    <hr>   
-                    <p class="description text-left">
-                        {{this.description}}
-                    </p>
+                    <hr> 
+                    <p class="text-info">Description</p> 
+                                    
                 </div>
                 
-                <div class="row text-center">
-                        <div class="col-12 text-left pl-5">
-                            Hours Learned : {{this.hours}} <i class="fas fa-edit"></i>
-                        </div>
-                        <div id="myProgress">
-                            <div id="myBar" style="width: 50%;"></div>
-                        </div>
-                        <div class="col-12 text-center">
-                             <i class="far fa-clock" style="font-size:20px;"></i> {{this.hours}} / {{this.maxHours}}
-                        </div>
-                    </div>             
+                <div class="card-body pl-5 description" style="font-size:15px;">
+                    <p>{{this.description}}</p> 
+                    
+                </div>               
                 <div class="card-footer text-center" style="font-size:20px;">
                     <div class="row mb-2">
-                        
-
-                                                             
+                        <div id="myProgress">
+                            <div style="position: absolute; margin: auto; left:0; right:0;"> <div style="font-size:15px;" class="pt-1">{{this.hours}} / {{this.maxHours}} </div> </div>
+                            <div id="myBar" style="width: {{this.hoursPercentage}}%;"></div>
+                        </div>                                
                     </div>
-                    <button type="button" onclick="completeQuest('{{this._id}}')"class="btn btn-success" style="font-size: 15px;">Add Hours</button>    
+                    <p style="font-size: 20px;">
+                        Hours Learn : {{this.hours}}   <i class="fas fa-edit ml-3 text-info" style="cursor: pointer;" onclick="editHours('{{this._id}}')"></i>
+                    </p>
+                    <button type="button" onclick="addHours('{{this._id}}')"class="btn btn-success" style="font-size: 15px;">Add Hours</button>    
                 </div>
             </div>
         </div>
-
     {{/each}}
 </div>
 
  <script src="/skills/skills.js"></script>
-
-
