@@ -21,6 +21,18 @@ Licensed under the MIT license - http://opensource.org/licenses/MIT
 
 Copyright (c) 2015 Daniel Eden
 */
+.titleBar{
+  background-image:url('/assets/img/wood.jpg');
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
+  color: #ccbfb7 !important;
+}
+
+.paperCard{
+  background-image:url('/assets/img/paper.png');
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
+}
 
 .animated {
   -webkit-animation-duration: 1s;

@@ -37,6 +37,16 @@ router.get('/skills',auth,async (req, res) => {
     })
 })
 
+router.get('/achievements',auth,async (req, res) => {
+
+    res.render('main', {
+        pageTitle:'Achievements',
+        sidebar5:'active',
+        isAchievements: true
+
+    })
+})
+
 router.get('/login', (req, res) => {
     res.render('login', {        
     })

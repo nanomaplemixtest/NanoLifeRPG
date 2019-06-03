@@ -19,8 +19,6 @@ a:hover {
   border: .05rem solid #fff;
 }
 
-
-
 /*
  * Base structure
  */
@@ -35,18 +33,19 @@ body {
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
   background-image: url("../img/index-bg.png");
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
 .cover-heading{
-  font-size:40px;
+  font-size:50px;
 }
 
 /* Button */
 .btn-login {
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 22.5px;
+  font-size: 30px;
   letter-spacing: 1px;
   display: inline-block;
   font-weight: bold;
@@ -69,7 +68,7 @@ body {
 .btn-get-started {
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
   letter-spacing: 1px;
   display: inline-block;
   padding: 15px 28px;
@@ -115,7 +114,7 @@ body {
  */
 
 .masthead {
-  font-size: 25px;
+  font-size: 30px;
   margin-bottom: 2rem;
 }
 
@@ -173,7 +172,7 @@ body {
  */
 
 .mastfoot {
- font-size:20px;
+ font-size:30px;
 }
 
 
