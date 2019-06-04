@@ -21,6 +21,7 @@ const userRouter = require('./routers/userRouter')
 const questsRouter = require('./routers/questRouter')
 const statsSystemRouter = require('./routers/statsSystemRouter')
 const skillsRouter = require('./routers/skillsRouter')
+const achievementRouter = require('./routers/achievementRouter')
 
 // Setup handlebars engine and views location
 app.set('view engine', 'hbs')
@@ -37,6 +38,7 @@ app.use(userRouter)
 app.use(questsRouter)
 app.use(skillsRouter)
 app.use(statsSystemRouter)
+app.use(achievementRouter)
 app.use(pagesRouter)
 
 

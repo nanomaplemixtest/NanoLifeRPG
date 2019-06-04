@@ -4,6 +4,7 @@ const auth = require('../middleware/auth')
 const userData = require('../utils/userData')
 const questsData = require('../utils/questsData')
 const skillsData = require('../utils/skillsData')
+const achievementsData = require('../utils/achievementsData')
 
 router.get('/home',auth,async (req, res) => {
     res.render('main', {
@@ -42,8 +43,9 @@ router.get('/achievements',auth,async (req, res) => {
     res.render('main', {
         pageTitle:'Achievements',
         sidebar5:'active',
-        isAchievements: true
-
+        isAchievements: true,
+        userData: await userData(req.user),
+        achievementsData: await achievementsData(req.user)
     })
 })
 

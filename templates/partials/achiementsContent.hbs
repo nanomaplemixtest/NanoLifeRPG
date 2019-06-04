@@ -1,7 +1,7 @@
 
 <div class="row">
     <div class="col-lg-12 text-left">
-        <button class="btn btn-info" onclick="addQuest()" style="font-size:25px; cursor:pointer; ">Add Achievement</button>
+        <button class="btn btn-info" onclick="addAchievement()" style="font-size:25px; cursor:pointer; ">Add Achievement</button>
     </div>
 </div>
 <div class="row">
@@ -12,15 +12,16 @@
 <br>
 <div class="row">
 
-    {{#each questsData}}
+    {{#each achievementsData.data}}
   
-    {{#unless this.completed}}
+    {{#if this.unlocked}}
         <div class="col-lg-4">
+
             <div class="card" >
                 <div class="card-header">   
                     <div class="row">
-                        <div class="col-9"><h5 class="card-title text-left text-danger" >{{this.title}}</h5></div>
-                        <div class="col-3 text-right"><button class="btn btn btn-light btn-round btn-icon" onclick="deleteQuest('{{this._id}}')"><i class="fas fa-times"></i></button></div>
+                        <div class="col-9"><i class="fas fa-trophy ml-3" style="color:gold;font-size:40px;"></i><h5 class="card-title text-danger">{{this.title}}</h5></div>
+                        <div class="col-3 text-right"><button class="btn btn btn-light btn-round btn-icon" onclick="deleteAchievement('{{this._id}}')"><i class="fas fa-times"></i></button></div>
                     </div>
                     <p style="font-size: 15px">{{this.type}}</p>   
                     <hr>                  
@@ -30,25 +31,42 @@
                     <p class="description">{{this.description}}</p> 
                 </div>               
                 <div class="card-footer text-center" style="font-size:20px;">
-                    <div class="row mb-2">
-                        <div class="col-8 text-left">
-                            EXP {{this.exp}}
-                        </div>
-                        <div class="col-4 text-right">
-                        <i class="fas fa-coins" style="color:#FFDF00;"></i> {{this.gold}}
-                        </div>                                        
+                   
+                </div>
+            </div>
+        </div>
+    {{/if}}   
+    {{/each}} 
+
+    {{#each achievementsData.data}}
+    {{#unless this.unlocked}}
+        <div class="col-lg-4">
+
+            <div class="card" style="background-color:gray;">
+                <div class="card-header">   
+                    <div class="row">
+                        <div class="col-9"><i class="fas fa-trophy ml-3 text-dark" style="font-size:40px;"></i><h5 class="card-title text-dark">{{this.title}}</h5></div>
+                        <div class="col-3 text-right"><button class="btn btn btn-secondary btn-round btn-icon" onclick="deleteAchievement('{{this._id}}')"><i class="fas fa-times"></i></button></div>
                     </div>
-                    <button type="button" onclick="completeQuest('{{this._id}}')"class="btn btn-success" style="font-size: 15px;">Complete</button>    
+                    <p style="font-size: 15px">{{this.type}}</p>   
+                    <hr>                  
+                </div>
+                <div class="card-body" style="font-size:15px;">
+                    <p class="text-dark ">Description</p>     
+                    <p class="description text-dark">{{this.description}}</p> 
+                </div>               
+                <div class="card-footer text-center" style="font-size:20px;">
+                    <button type="button" onclick="unlockAchievement('{{this._id}}')"class="btn btn-secondary" style="font-size: 15px;">Unlock</button>   
                 </div>
             </div>
         </div>
     {{/unless}}
-    {{/each}}
+    {{/each}} 
 </div>
 
 
 
 
- <script src="/achievement/achievementJS.js"></script>
+ <script src="/achievements/achievementJS.js"></script>
 
 
