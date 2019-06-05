@@ -5,6 +5,7 @@ const userData = require('../utils/userData')
 const questsData = require('../utils/questsData')
 const skillsData = require('../utils/skillsData')
 const achievementsData = require('../utils/achievementsData')
+const rewardsData = require('../utils/rewardsData')
 
 router.get('/home',auth,async (req, res) => {
     res.render('main', {
@@ -46,6 +47,17 @@ router.get('/achievements',auth,async (req, res) => {
         isAchievements: true,
         userData: await userData(req.user),
         achievementsData: await achievementsData(req.user)
+    })
+})
+
+router.get('/rewards',auth,async (req, res) => {
+
+    res.render('main', {
+        pageTitle:'Rewards',
+        sidebar6:'active',
+        isRewards: true,
+        userData: await userData(req.user),
+        rewardsData: await rewardsData(req.user)
     })
 })
 

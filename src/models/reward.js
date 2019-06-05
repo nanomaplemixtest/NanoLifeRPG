@@ -1,22 +1,20 @@
 const mongoose = require('mongoose')
 
-const achievement = mongoose.model('Achievement', {
+const reward = mongoose.model('Reward', {
     title:{
         type: String,
         required: true,
         trim: true
-    },
+    },   
     description: {
         type: String,
         trim: true,
         default:'None'
     },
-    unlocked: {
-        type: Boolean,
-        default: false
-    },
-    unlockedDate:{
-        type: String,
+    price:{
+      type:Number,
+      require:true,
+      trim:true,
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
@@ -25,4 +23,4 @@ const achievement = mongoose.model('Achievement', {
     }
 })
 
-module.exports = achievement
+module.exports = reward

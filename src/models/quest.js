@@ -8,7 +8,8 @@ const Quest = mongoose.model('Quest', {
     },
     description: {
         type: String,
-        trim: true
+        trim: true,
+        default:'None'
     },
     completed: {
         type: Boolean,

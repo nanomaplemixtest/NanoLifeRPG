@@ -22,6 +22,7 @@ const questsRouter = require('./routers/questRouter')
 const statsSystemRouter = require('./routers/statsSystemRouter')
 const skillsRouter = require('./routers/skillsRouter')
 const achievementRouter = require('./routers/achievementRouter')
+const rewardRouter = require('./routers/rewardRouter')
 
 // Setup handlebars engine and views location
 app.set('view engine', 'hbs')
@@ -40,7 +41,7 @@ app.use(skillsRouter)
 app.use(statsSystemRouter)
 app.use(achievementRouter)
 app.use(pagesRouter)
-
+app.use(rewardRouter)
 
 
 

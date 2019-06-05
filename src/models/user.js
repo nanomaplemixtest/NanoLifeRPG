@@ -105,6 +105,12 @@ userSchema.virtual('achievements', {
     foreignField: 'owner'
 })
 
+userSchema.virtual('rewards', {
+    ref: 'Reward',
+    localField: '_id',
+    foreignField: 'owner'
+})
+
 userSchema.methods.toJSON = function () {
     const user = this
     const userObject = user.toObject()

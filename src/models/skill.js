@@ -8,7 +8,8 @@ const Skill = mongoose.model('Skill', {
     },
     description: {
         type: String,
-        trim: true
+        trim: true,
+        default:'None'
     },
     hours: {
         type: Number,

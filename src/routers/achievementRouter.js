@@ -1,7 +1,7 @@
 const express = require('express')
 const auth = require('../middleware/auth')
 const Achievement = require('../models/achievement')
-const User = require('../models/user')
+const dateFormat = require('dateformat')
 const router = new express.Router()
 
 router.post('/api/achievement/create', auth ,async (req, res) => {
@@ -34,6 +34,10 @@ router.patch('/api/achievement/unlock',auth,async(req,res)=>{
 
         const achievement = await Achievement.findOne({_id:req.body._id})
         achievement.unlocked = 'true'
+
+        dateNow = Date.now()
+        console.log(dateFormat(dateNow, "dd, mmmm , yyyy, h:MM:ss TT"))
+        achievement.unlockedDate = dateFormat(dateNow, "dd mmm yyyy, h:MM TT");
         achievement.save()
              
         res.status(202).send({completed:true})
