@@ -45,7 +45,7 @@ router.post('/api/skills/addHours',auth, async (req,res)=>{
     
     try{
         const skill = await Skill.findOne({_id:req.body._id})
-        skill.hours += parseFloat(req.body.hours)
+        skill.hours += parseFloat(req.body.hours).toFixed(2)
         skillHoursCheck(skill)
         skill.save()
 
@@ -60,7 +60,7 @@ router.patch('/api/skills/editHours',auth, async (req,res)=>{
     
     try{
         const skill = await Skill.findOne({_id:req.body._id})
-        skill.hours = parseFloat(req.body.hours)
+        skill.hours = parseFloat(req.body.hours).toFixed(2)
         skillHoursCheck(skill)
         skill.save()
 

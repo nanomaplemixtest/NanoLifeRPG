@@ -39,6 +39,17 @@ router.get('/skills',auth,async (req, res) => {
     })
 })
 
+router.get('/boss-fight',auth,async (req, res) => {
+
+    res.render('main', {
+        pageTitle:'Boss Fight',
+        sidebar4:'active',
+        isBoss: true,
+        userData: await userData(req.user),
+
+    })
+})
+
 router.get('/achievements',auth,async (req, res) => {
 
     res.render('main', {
