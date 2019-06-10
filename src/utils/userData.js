@@ -28,6 +28,9 @@ const getHomeData = async (user)=>{
     const gold = user.stats.gold
     const goldTotal = user.stats.goldTotal
 
+    //Boss Level
+    const bossLevel = user.stats.bossLevel
+
     const data = {
         username,
         level,
@@ -44,7 +47,8 @@ const getHomeData = async (user)=>{
         questsCount,
         questsCompleted,
         gold,
-        goldTotal
+        goldTotal,
+        bossLevel
     }
     return data
 }

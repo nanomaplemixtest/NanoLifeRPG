@@ -4,9 +4,9 @@ const skillsData = async (user)=>{
 
     const count = user.skills.length
     let totalHours = 0
-
+    let totalLevel = 0
     const data = user.skills
-   
+    
     data.forEach((skill) => {
         totalHours += skill.hours
         let hoursPercentage = Math.floor( (skill.hours / skill.maxHours) * 100)
@@ -16,12 +16,15 @@ const skillsData = async (user)=>{
         }
         skill.hoursPercentage = hoursPercentage
         
+
+        totalLevel += skill.level
     })
 
     return {
         data,
         count,
-        totalHours
+        totalHours,
+        totalLevel
     }
 }
 

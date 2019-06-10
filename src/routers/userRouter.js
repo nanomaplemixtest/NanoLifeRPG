@@ -86,6 +86,20 @@ router.delete('/api/users/me', auth, async (req, res) => {
     }
 })
 
+router.patch('/api/users/bossLevel', auth, async (req, res) => {
+
+    req.user.stats.gold += req.user.stats.bossLevel * 20
+    req.user.stats.bossLevel += 1
+
+    
+    try{
+        await req.user.save()
+        res.status(200).send({ok:"ok"})
+    }catch{
+        res.status(500).send()
+    }
+})
+
 
 
 

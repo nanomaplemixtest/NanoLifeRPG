@@ -46,7 +46,7 @@ router.get('/boss-fight',auth,async (req, res) => {
         sidebar4:'active',
         isBoss: true,
         userData: await userData(req.user),
-
+        skillsData: await skillsData(req.user)
     })
 })
 

@@ -8,9 +8,14 @@
   <br><br><br>
   <canvas id="screen" width="1000" height="600"></canvas>
 </div>
-
-<button id="attack">Test</button>
-
+<img id="bossImg" style=" width:150px ; visibility: hidden; height: 250px;"src="/boss/bossAttack.gif">
+<h6 id="username" style="visibility: hidden;">{{userData.username}}</h6>
+<h6 id="playerLevel" style="visibility: hidden;">{{userData.level}}</h6>
+<h6 id="playerHpLevel" style="visibility: hidden;">{{userData.hpLevel}}</h6>
+<h6 id="playerIntLevel" style="visibility: hidden;">{{userData.intLevel}}</h6>
+<h6 id="playerStrLevel" style="">{{userData.strLevel}}</h6>
+<h6 id="bossLevel" style="visibility: hidden;">{{userData.bossLevel}}</h6>
+<h6 id="playerSkillLevel" style="visibility: hidden;">{{skillsData.totalLevel}}</h6>
 
 
 <script type="module" src="/boss/bossJS.js"></script>

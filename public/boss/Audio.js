@@ -9,4 +9,8 @@ export default class Audio{
         this.bgAudio.play()
     }
 
+    stopBG(){
+        this.bgAudio.stop()
+    }
+
 }

@@ -82,8 +82,11 @@ const userSchema = new mongoose.Schema({
         skillHours:{
             type:Number,
             default:0
+        },
+        bossLevel:{
+            type:Number,
+            default:1
         }
-
     }
 })
 

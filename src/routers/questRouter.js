@@ -74,7 +74,7 @@ router.patch('/api/quests/complete',auth,async(req,res)=>{
             req.user.stats.point++
             req.user.stats.maxExp *= 1.05
         }
-
+        req.user.stats.exp = req.user.stats.exp.toFixed()
         req.user.stats.gold += quest.gold
         req.user.stats.questsCompleted++
         req.user.stats.goldTotal += quest.gold
