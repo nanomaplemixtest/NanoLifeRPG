@@ -71,7 +71,7 @@ loginForm.addEventListener('submit',(e)=>{
 })
 
 function sendRegister(data){
-
+    document.getElementById("registerButton").innerHTML = '<i class="fas fa-spinner"></i>'
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -82,7 +82,9 @@ function sendRegister(data){
             location.replace("/login");
         },
         error:function(e){
-           console.log("Register Fail");
+            document.getElementById("registerButton").innerHTML = 'Register'
+            document.getElementById("email").classList.add('alert-validate');
+            document.getElementById("email").setAttribute("data-validate", "Email Used,Please try another Email.");
         },        
      });
 }
