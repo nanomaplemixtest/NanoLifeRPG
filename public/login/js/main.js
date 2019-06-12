@@ -10,7 +10,7 @@ const loginForm = document.querySelector('form');
 
 loginForm.addEventListener('submit',(e)=>{
     e.preventDefault();
-
+    
     const emailStr = document.getElementById('emailTextBox').value;
     const passwordStr = document.getElementById('passwordTextBox').value;
 
@@ -37,11 +37,12 @@ loginForm.addEventListener('submit',(e)=>{
 
 
     if(check){
+        document.getElementById('loginButton').innerHTML = '<i class="fas fa-spinner"></i>'
         var data = {
             email:emailStr,
             password:passwordStr
         };
-    
+        
         $.ajax({
             type: "POST",
             contentType: "application/json",
@@ -52,7 +53,9 @@ loginForm.addEventListener('submit',(e)=>{
                 location.replace("/home");
             },
             error:function(e){
-               console.log("Register Fail");
+                document.getElementById('loginButton').innerHTML = 'Login'
+                document.getElementById("password").classList.add('alert-validate');
+                document.getElementById("password").setAttribute("data-validate", "Wrong Password or Email");
             },        
          });
         
