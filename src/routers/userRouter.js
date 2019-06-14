@@ -88,13 +88,25 @@ router.delete('/api/users/me', auth, async (req, res) => {
 
 router.patch('/api/users/bossLevel', auth, async (req, res) => {
 
-    req.user.stats.gold += req.user.stats.bossLevel * 20
-    req.user.stats.bossLevel += 1
+    const exp = req.user.stats.bossLevel * 50
+    const gold =  req.user.stats.bossLevel * 20
 
-    
+    req.user.stats.exp +=  exp
+    req.user.stats.gold += gold
+
+    while(req.user.stats.exp >= req.user.stats.maxExp){
+        req.user.stats.exp -= req.user.stats.maxExp
+        req.user.stats.level++
+        req.user.stats.point++
+        req.user.stats.maxExp *= 1.05
+    }
+    req.user.stats.exp = req.user.stats.exp.toFixed()
+
+    req.user.stats.bossLevel += 1
+ 
     try{
         await req.user.save()
-        res.status(200).send({ok:"ok"})
+        res.status(200).send({exp,gold})
     }catch{
         res.status(500).send()
     }

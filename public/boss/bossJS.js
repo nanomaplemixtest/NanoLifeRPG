@@ -226,10 +226,11 @@ function gameEnd(whoWin){
         context.fillStyle = "white"
         context.font = "50px monospace";
         context.fillText('DEFEAT',415,200)
+        setTimeout(()=>{
+            location.reload()
+        },3000)
     }else{
-        context.fillStyle = "white"
-        context.font = "50px monospace";
-        context.fillText('VICTORY',410,200)
+
 
         $.ajax({
             type: "PATCH",
@@ -237,8 +238,14 @@ function gameEnd(whoWin){
             url: '/api/users/bossLevel', 
             data: JSON.stringify(),
             dataType: "json",
-            success: function(data,status) { 
-                
+            success: function(data) { 
+                context.fillStyle = "white"
+                context.font = "50px monospace";
+                context.fillText('VICTORY',410,180)
+                context.fillText('+EXP '+ data.exp + '  +GOLD '+ data.gold,270,230)
+                setTimeout(()=>{
+                    location.reload()
+                },3000)
             },
             error:function(e){
                Swal.fire({

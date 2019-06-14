@@ -1,10 +1,3 @@
-// document.getElementById("email").classList.add('alert-validate')
-
-// document.getElementById("email").setAttribute("data-validate", "Puzzy")
-
-// document.getElementById("email").classList.remove('alert-validate')
-
-
 
 const loginForm = document.querySelector('form');
 
